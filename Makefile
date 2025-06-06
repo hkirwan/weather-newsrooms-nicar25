@@ -1,5 +1,5 @@
 # SOURCE_URL:="https://api.weather.gov/alerts/active?status=actual&area=CA&code=HWW"
-SOURCE_URL:="https://s3.amazonaws.com/media.johnkeefe.net/data/example_warnings.json"
+SOURCE_URL:="https://api.weather.gov/alerts/active?status=actual&area=WI"
 
 all: clean download slack
 
@@ -7,7 +7,7 @@ download:
 	-mkdir tmp
 	wget --continue --progress=dot:mega --waitretry=60 ${SOURCE_URL} \
 		--header='accept: application/geo+json' \
-		--header='User-Agent: (nytimes.com, john.keefe@nytimes.com)' \
+		--header='User-Agent: (wpr.org, hope.kirwan@wpr.org)' \
 		-O tmp/download.json
 
 warnings:
